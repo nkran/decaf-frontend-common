@@ -1,0 +1,55 @@
+{
+    "name": "decaf-common",
+    "version": "0.0.0",
+    "description": "Decaf common code.",
+    "keywords": [],
+    "homepage": "",
+    "license": "MIT",
+    "author": {
+        "name": "Roland Groza",
+        "email": "rolandjitsu@gmail.com"
+    },
+    "main": "./dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/biosustain/decaf-frontend-common"
+    },
+    "scripts": {
+		"clean": "rm -rf dist",
+		"lint": "tslint src/*.ts -c ./tslint.json -s node_modules/tslint-stylish -t stylish",
+		"test": "karma start karma.config.js --browsers PhantomJS --single-run --log-level error",
+		"build": "tsc -target es5"
+    },
+    "dependencies": {},
+    "devDependencies": {
+		"angular": "^1.5.7",
+		"angular-mocks": "^1.5.7",
+		"babel-preset-stage-0": "^6.5.0",
+		"babel-preset-es2015": "^6.9.0",
+		"babelify": "^7.3.0",
+		"browserify": "^13.0.1",
+		"core-js": "^2.4.0",
+		"jasmine": "^2.4.1",
+		"jasmine-core": "^2.4.1",
+		"karma": "^1.0.0",
+		"karma-browserify": "^5.0.5",
+		"karma-chrome-launcher": "^1.0.1",
+		"karma-cli": "^1.0.0",
+		"karma-jasmine": "^1.0.2",
+		"karma-phantomjs-launcher": "^1.0.1",
+		"karma-spec-reporter": "^0.0.26",
+		"phantomjs-prebuilt": "^2.1.7",
+		"tsify": "^0.16.0",
+		"tslint": "^3.11.0",
+		"tslint-stylish": "2.1.0-beta",
+		"typescript": "^1.8.10",
+		"typings": "^1.3.0",
+		"watchify": "^3.7.0"
+    },
+	"peerDependencies": {
+		"angular": "1.5.x"
+	},
+    "engines": {
+        "node": ">= 6.3"
+    }
+}
