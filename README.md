@@ -21,7 +21,7 @@ Make sure that the builds and tests will run successfully, before you make a pul
 - run the tests using `npm test` (*if you wish to run tests on file change, use `$(npm bin)/karma start karma.config.js`.*);
 - lint the code with `npm run lint`.
 
-**Note**: If you add new files or remove files, make sure to edit the `"files"` field in `tsconfig.json`:
+**Note**: If you add/remove files, make sure to edit the `"files"` field in `tsconfig.json`:
 ```js
 "files": [
     // These files MUST always be here as they provide the type definitions
