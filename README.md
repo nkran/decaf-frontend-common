@@ -1,7 +1,7 @@
 # Decaf Common
 
-[![Build Status](https://travis-ci.org/biosustain/potion-node.svg?branch=master)](https://travis-ci.org/biosustain/potion-node)
-[![Dependency Status](https://gemnasium.com/badges/github.com/biosustain/potion-node.svg)](https://gemnasium.com/github.com/biosustain/potion-node)
+[![Build Status](https://travis-ci.org/biosustain/decaf-frontend-common.svg?branch=master)](https://travis-ci.org/biosustain/decaf-frontend-common)
+[![Dependency Status](https://gemnasium.com/badges/github.com/biosustain/decaf-frontend-common.svg)](https://gemnasium.com/github.com/biosustain/decaf-frontend-common)
 
 > A TypeScript collection of common js for the Decaf project.
 
