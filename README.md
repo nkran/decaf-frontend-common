@@ -25,7 +25,7 @@ Make sure that the builds and tests will run successfully, before you make a pul
 ```js
 "files": [
     // These files MUST always be here as they provide the type definitions
-    "typings/main.d.ts",
+    "typings/index.d.ts",
     "node_modules/typescript/lib/lib.es7.d.ts",
     // You can change the below as you wish
     "src/index.ts",
