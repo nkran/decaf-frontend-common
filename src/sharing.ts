@@ -13,7 +13,7 @@ function sharingProvider() {
 
 	return {
 		register(state, {name = '', accept = []} = {}) {
-			registry.push({state, name, accept})
+			registry.push({state, name, accept});
 		},
 		$get: ['$state', '$rootScope', function ($state, $rootScope) {
 			let provided = {};
@@ -25,7 +25,7 @@ function sharingProvider() {
 					if (values instanceof Array) {
 						transfer = {};
 						return values;
-					} else if (values != undefined) {
+					} else if (values !== undefined) {
 						transfer = {};
 						return [values];
 					} else {
@@ -35,7 +35,7 @@ function sharingProvider() {
 
 				item(type, otherwise = null) {
 					let value = transfer[type];
-					if (!(value == undefined || value instanceof Array)) {
+					if (!(value === undefined || value instanceof Array)) {
 						transfer = {};
 						return value;
 					} else {
@@ -48,7 +48,7 @@ function sharingProvider() {
 						let watchExpression = sharable[type];
 
 						scope.$watch(watchExpression, (value) => {
-							if (value != undefined) {
+							if (value !== undefined) {
 								provided[type] = value;
 							} else {
 								delete provided[type];
@@ -65,8 +65,9 @@ function sharingProvider() {
 				}
 
 				get targets() {
-					return registry.filter(({name, accept}) =>
-						accept.some(({type, multiple}) => provided[type] != undefined && (multiple || !(provided[type] instanceof Array))))
+					return registry.filter(
+						({accept}) => accept.some(({type, multiple}) => provided[type] !== undefined && (multiple || !(provided[type] instanceof Array)))
+					);
 				}
 
 				// TODO transfer to $stateParams if receiving state supports it (needs to be specified on register).
@@ -81,7 +82,7 @@ function sharingProvider() {
 
 			return new Sharing();
 		}]
-	}
+	};
 }
 
 export default sharing;
