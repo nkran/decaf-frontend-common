@@ -1,5 +1,6 @@
 {
     "name": "decaf-common",
+	// TODO: we need to install with JSPM from git and remove versioning as it was unpublished
     "version": "0.0.4",
     "description": "Decaf common code.",
     "keywords": [],
