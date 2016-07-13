@@ -1,6 +1,6 @@
 {
     "name": "decaf-common",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Decaf common code.",
     "keywords": [],
     "homepage": "",
@@ -49,8 +49,8 @@
 		"watchify": "^3.7.0"
     },
 	"peerDependencies": {
-		"angular": "1.5.x",
-		"angular-ui-router": "0.3.x"
+		"angular": "^1.5.7",
+		"angular-ui-router": "^0.3.1"
 	},
     "engines": {
         "node": ">= 6.3"
