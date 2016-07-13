@@ -1,6 +1,3 @@
-import {module as ngModule} from 'angular';
-import 'angular-mocks';
-import 'angular-ui-router';
 import sharing from './sharing';
 
 
@@ -26,6 +23,6 @@ describe('sharing', () => {
 });
 
 
-ngModule('test', [
+angular.module('test', [
 	sharing.name
 ]);

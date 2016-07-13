@@ -1,9 +1,11 @@
 "use strict";
-var angular_1 = require('angular');
 /**
  * This is a service for transferring items between components.
  */
-var sharing = angular_1.module('sharing', ['ui.router']).provider('sharing', sharingProvider);
+// Assume angular is available globally
+var sharing = angular
+    .module('sharing', ['ui.router'])
+    .provider('sharing', sharingProvider);
 function sharingProvider() {
     var registry = [];
     return {
