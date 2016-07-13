@@ -3,7 +3,7 @@ var angular_1 = require('angular');
 /**
  * This is a service for transferring items between components.
  */
-var sharing = angular_1.module('sharing', []).provider('sharing', sharingProvider);
+var sharing = angular_1.module('sharing', ['ui.router']).provider('sharing', sharingProvider);
 function sharingProvider() {
     var registry = [];
     return {
@@ -24,7 +24,7 @@ function sharingProvider() {
                             transfer = {};
                             return values;
                         }
-                        else if (values != undefined) {
+                        else if (values !== undefined) {
                             transfer = {};
                             return [values];
                         }
@@ -35,7 +35,7 @@ function sharingProvider() {
                     Sharing.prototype.item = function (type, otherwise) {
                         if (otherwise === void 0) { otherwise = null; }
                         var value = transfer[type];
-                        if (!(value == undefined || value instanceof Array)) {
+                        if (!(value === undefined || value instanceof Array)) {
                             transfer = {};
                             return value;
                         }
@@ -48,7 +48,7 @@ function sharingProvider() {
                         var _loop_1 = function(type) {
                             var watchExpression = sharable[type];
                             scope.$watch(watchExpression, function (value) {
-                                if (value != undefined) {
+                                if (value !== undefined) {
                                     provided[type] = value;
                                 }
                                 else {
@@ -69,10 +69,10 @@ function sharingProvider() {
                     Object.defineProperty(Sharing.prototype, "targets", {
                         get: function () {
                             return registry.filter(function (_a) {
-                                var name = _a.name, accept = _a.accept;
+                                var accept = _a.accept;
                                 return accept.some(function (_a) {
                                     var type = _a.type, multiple = _a.multiple;
-                                    return provided[type] != undefined && (multiple || !(provided[type] instanceof Array));
+                                    return provided[type] !== undefined && (multiple || !(provided[type] instanceof Array));
                                 });
                             });
                         },
