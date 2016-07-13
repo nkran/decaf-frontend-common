@@ -5,7 +5,7 @@ import {module as ngModule} from 'angular';
  * This is a service for transferring items between components.
  */
 
-const sharing = ngModule('sharing', []).provider('sharing', sharingProvider);
+const sharing = ngModule('sharing', ['ui.router']).provider('sharing', sharingProvider);
 
 
 function sharingProvider() {
