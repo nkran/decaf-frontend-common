@@ -1,3 +1,5 @@
 // Export everything
 export {dirname} from './path';
-export * from './sharing';
+
+import sharing from './sharing';
+export default sharing;
