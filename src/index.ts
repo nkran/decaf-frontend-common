@@ -1,8 +1,9 @@
-declare const config: angular.IModule;
-declare const sharing: angular.IModule;
-
-
 // Export everything
+import config from './config';
 export * from './config';
+export {config};
+
 export {dirname} from './path';
-export * from './sharing';
+
+import sharing from './sharing';
+export {sharing};
