@@ -17,6 +17,7 @@
 		"node_modules/typescript/lib/lib.dom.d.ts",
 		"src/config.ts",
 		"src/path.ts",
+		"src/projects.ts",
 		"src/sharing.ts",
 		"src/index.ts"
 	]
