@@ -8,6 +8,9 @@ exports.config = config_1.default;
 __export(require('./config'));
 var path_1 = require('./path');
 exports.dirname = path_1.dirname;
+var projects_1 = require('./projects');
+exports.projects = projects_1.default;
+__export(require('./projects'));
 var sharing_1 = require('./sharing');
 exports.sharing = sharing_1.default;
 //# sourceMappingURL=index.js.map
