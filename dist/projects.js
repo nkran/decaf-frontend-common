@@ -13,7 +13,7 @@ var Projects = (function () {
         return this._items.entries();
     };
     Projects.prototype.byId = function (id) {
-        return this.toArray().find(function (project) { return project.id === id; });
+        return this.toArray().find(function (project) { return project.id == id; }); // tslint:disable-line:triple-equals
     };
     Projects.prototype.current = function (project) {
         if (project !== undefined) {

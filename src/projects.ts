@@ -14,7 +14,7 @@ class Projects<T> implements Iterable<T> {
 	}
 
 	byId(id) {
-		return this.toArray().find((project) => (<any>project).id === id);
+		return this.toArray().find((project) => (<any>project).id == id); // tslint:disable-line:triple-equals
 	}
 
 	current(project?: any) {
