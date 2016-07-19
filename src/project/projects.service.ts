@@ -6,7 +6,8 @@ class Projects<T> implements Iterable<T> {
 
 	// TODO: this is here to mock data, implement a way to actually get projects
 	private _items: any[] = [
-		{id: 0, name: 'Archimedes', color: '#5fc5ff'}
+		{id: 0, name: 'Archimedes', color: '#5fc5ff'},
+		{id: 1, name: 'Zeus', color: '#ea0766'}
 	];
 
 	[Symbol.iterator](): Iterator<T> {
