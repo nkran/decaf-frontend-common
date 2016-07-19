@@ -31,4 +31,4 @@ exports.Projects = Projects;
 projects.service('projects', Projects);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = projects;
-//# sourceMappingURL=projects.js.map
+//# sourceMappingURL=projects.service.js.map
