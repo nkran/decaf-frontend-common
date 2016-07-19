@@ -24,8 +24,24 @@ project.config(function ($stateProvider) {
 				// noinspection TypeScriptUnresolvedFunction
 				projects.current(null);
 			}
+		})
+		.state('root.project.home', {
+			url: '/',
+			views: {
+				'content@': {
+					template: `
+						<div layout-padding>
+							<h1 class="md-title">Project Home</h1>
+						</div>
+					`
+				}
+			}
 		});
 });
 
+
+class ProjectHomeController {
+	constructor() {}
+}
 
 export default project;

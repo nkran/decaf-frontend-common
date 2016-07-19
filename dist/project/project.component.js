@@ -22,8 +22,21 @@ project.config(function ($stateProvider) {
             // noinspection TypeScriptUnresolvedFunction
             projects.current(null);
         }
+    })
+        .state('root.project.home', {
+        url: '/',
+        views: {
+            'content@': {
+                template: "\n\t\t\t\t\t\t<div layout-padding>\n\t\t\t\t\t\t\t<h1 class=\"md-title\">Project Home</h1>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t"
+            }
+        }
     });
 });
+var ProjectHomeController = (function () {
+    function ProjectHomeController() {
+    }
+    return ProjectHomeController;
+}());
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = project;
 //# sourceMappingURL=project.component.js.map
