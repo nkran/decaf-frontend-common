@@ -14,7 +14,16 @@ project.config(function ($stateProvider) {
         resolve: {
             project: ['$stateParams', 'projects', function ($stateParams, projects) { return projects.byId($stateParams.projectId); }]
         },
-        onEnter: function (projects, project) {
+        onEnter: function ($stateParams, $state, projects, project) {
+            // If the projectId was not passed redirect to first project
+            var projectId = $stateParams.projectId;
+            var id = projects.toArray()[0].id;
+            if (!projectId && projectId != 0) {
+                $state.go('root.project', {
+                    projectId: id
+                });
+                return;
+            }
             // noinspection TypeScriptUnresolvedFunction
             projects.current(project);
         },

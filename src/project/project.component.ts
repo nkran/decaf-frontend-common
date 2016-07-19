@@ -20,7 +20,7 @@ project.config(function ($stateProvider) {
 				// If the projectId was not passed redirect to first project
 				let {projectId} = $stateParams;
 				let {id} = projects.toArray()[0];
-				if (projectId == undefined) {
+				if (!projectId && projectId != 0) {
 					$state.go('root.project', {
 						projectId: id
 					});
