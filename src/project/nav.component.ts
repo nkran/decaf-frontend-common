@@ -7,7 +7,7 @@ const nav = angular.module('platform.project.nav', [
 
 
 class ProjectNavController {
-	modules: any[];
+	components: any[];
 	private _projects: Projects<any>;
 	private _$state: any;
 
@@ -15,9 +15,9 @@ class ProjectNavController {
 		this._$state = $state;
 		this._projects = projects;
 
-		$scope.$watchCollection('nav._modules', (modules) => {
-			if (modules) {
-				this.modules = modules.filter(({isProjectType}) => isProjectType);
+		$scope.$watchCollection('nav._components', (components) => {
+			if (components) {
+				this.components = components.filter(({isProjectType}) => isProjectType);
 			}
 		});
 	}
@@ -56,8 +56,8 @@ class ProjectNavController {
 
 nav.component('projectNav', {
 	template: `
-		<div ng-if="nav.projects.length && nav.modules.length">
-			<md-toolbar ng-style="{'background-color': nav.project.color || nav.color()}" class="module-color">
+		<div ng-if="nav.projects.length && nav.components.length">
+			<md-toolbar ng-style="{'background-color': nav.project.color || nav.color()}" class="component-color">
 				<div class="md-toolbar-tools">
 					<h1 flex>
 						<a ng-if="nav.project" ui-sref="root.project.home({projectId: nav.project.id})">{{nav.project.name}}</a>
@@ -99,10 +99,10 @@ nav.component('projectNav', {
 				</md-list-item>
 			</md-list>
 		
-			<md-list ng-if="nav.modules" ng-show="nav.project">
-				<md-list-item ng-repeat="module in nav.modules" ui-sref="{{module.navigation.state}}">
-					<md-icon>{{ module.navigation.icon }}</md-icon>
-					<p>{{ module.navigation.label }}</p>
+			<md-list ng-if="nav.components" ng-show="nav.project">
+				<md-list-item ng-repeat="component in nav.components" ui-sref="{{component.navigation.state}}">
+					<md-icon>{{ component.navigation.icon }}</md-icon>
+					<p>{{ component.navigation.label }}</p>
 				</md-list-item>
 			</md-list>
 		</div>
@@ -110,7 +110,7 @@ nav.component('projectNav', {
 	controller: ProjectNavController,
 	controllerAs: 'nav',
 	bindings: {
-		_modules: '=modules',
+		_components: '=components',
 		project: '=',
 		color: '&'
 	}

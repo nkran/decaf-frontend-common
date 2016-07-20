@@ -50,8 +50,4 @@ project.config(function ($stateProvider) {
 });
 
 
-class ProjectHomeController {
-	constructor() {}
-}
-
 export default project;

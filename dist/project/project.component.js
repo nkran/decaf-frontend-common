@@ -41,11 +41,6 @@ project.config(function ($stateProvider) {
         }
     });
 });
-var ProjectHomeController = (function () {
-    function ProjectHomeController() {
-    }
-    return ProjectHomeController;
-}());
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = project;
 //# sourceMappingURL=project.component.js.map
