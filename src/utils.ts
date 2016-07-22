@@ -29,14 +29,23 @@ function platformProvider($stateProvider) {
 			state = isProjectType ? `root.project.${state}` : `root.${state}`;
 			let options = angular.copy(config);
 
+			// Update the `{data}` with the component name
+			let data = options.data || {};
+			Object.assign(data, {
+				component
+			});
+
+			// Update the `{data}` with the switchable state
 			if (isProjectType && switchable) {
-				Object.assign(options, {
-					data: {
-						component,
-						switchable: state
-					}
+				Object.assign(data, {
+					switchable: state
 				});
 			}
+
+			Object.assign(options, {
+				data
+			});
+
 
 			$stateProvider.state(state, options);
 
