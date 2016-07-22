@@ -3,10 +3,10 @@ import utils from './utils';
 
 // TODO: implement unit tests for this module
 describe('utils', () => {
-	describe('platformStateProvider', () => {
+	describe('platformProvider', () => {
 		let provider;
 
-		beforeEach(angular.mock.module('test.utils', ['platformStateProvider', (platformStateProvider) => {
+		beforeEach(angular.mock.module('test.utils', ['platformProvider', (platformProvider) => {
 			provider = platformStateProvider;
 		}]));
 
