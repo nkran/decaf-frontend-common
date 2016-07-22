@@ -4,11 +4,11 @@ var utils = angular
     .module('platform.utils', ['ui.router'])
     .provider('platform', platformProvider);
 function platformProvider($stateProvider) {
-    var registry = new WeakMap();
+    var registry = new Map();
     return {
         register: function (component, _a) {
             var _b = (_a === void 0 ? {} : _a).isProjectType, isProjectType = _b === void 0 ? false : _b;
-            registry.set({ isProjectType: isProjectType }, component);
+            registry.set(component, { isProjectType: isProjectType });
             // Make it chainable
             return this;
         },
@@ -17,14 +17,14 @@ function platformProvider($stateProvider) {
             config = config || {};
             var componentConfig;
             var component = null;
-            for (var _i = 0, _c = registry.entries(); _i < _c.length; _i++) {
-                var _d = _c[_i], config_1 = _d[0], comp = _d[1];
+            for (var _i = 0, _c = Array.from(registry.keys()); _i < _c.length; _i++) {
+                var comp = _c[_i];
                 if (state.startsWith(comp)) {
-                    componentConfig = angular.copy(config_1);
                     component = comp;
+                    componentConfig = angular.copy(registry.get(comp));
                 }
             }
-            var _e = (componentConfig || {}).isProjectType, isProjectType = _e === void 0 ? false : _e;
+            var _d = (componentConfig || {}).isProjectType, isProjectType = _d === void 0 ? false : _d;
             state = isProjectType ? "root.project." + state : "root." + state;
             var options = angular.copy(config);
             if (isProjectType && switchable) {

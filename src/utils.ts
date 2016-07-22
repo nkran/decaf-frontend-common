@@ -5,11 +5,11 @@ const utils = angular
 
 
 function platformProvider($stateProvider) {
-	let registry = new WeakMap();
+	let registry = new Map();
 
 	return {
 		register(component: string, {isProjectType = false} = {}) {
-			registry.set({isProjectType}, component);
+			registry.set(component, {isProjectType});
 			// Make it chainable
 			return this;
 		},
@@ -18,10 +18,10 @@ function platformProvider($stateProvider) {
 
 			let componentConfig: any;
 			let component: any = null;
-			for (let [config, comp] of (<any>registry).entries()) {
+			for (let comp of Array.from(registry.keys())) {
 				if (state.startsWith(comp)) {
-					componentConfig =  angular.copy(config);
 					component = comp;
+					componentConfig =  angular.copy(registry.get(comp));
 				}
 			}
 

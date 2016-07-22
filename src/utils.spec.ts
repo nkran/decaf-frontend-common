@@ -7,7 +7,7 @@ describe('utils', () => {
 		let provider;
 
 		beforeEach(angular.mock.module('test.utils', ['platformProvider', (platformProvider) => {
-			provider = platformStateProvider;
+			provider = platformProvider;
 		}]));
 
 		beforeEach(angular.mock.inject(function ($injector) {}));

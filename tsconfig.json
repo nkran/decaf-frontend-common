@@ -21,6 +21,7 @@
 		"src/project/nav.component.ts",
 		"src/project/project.component.ts",
 		"src/sharing.ts",
+		"src/utils.ts",
 		"src/index.ts"
 	]
 }
