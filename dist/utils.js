@@ -8,6 +8,7 @@ function platformStateProvider($stateProvider) {
         state: function (state, config, _a) {
             var _b = (_a === void 0 ? {} : _a).isProjectType, isProjectType = _b === void 0 ? false : _b;
             $stateProvider.state(isProjectType ? "root.project." + state : "root." + state, config);
+            return this;
         },
         $get: [function () {
                 return {};
