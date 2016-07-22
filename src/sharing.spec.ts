@@ -7,7 +7,7 @@ describe('sharing', () => {
 		let provider;
 		let sharing;
 
-		beforeEach(angular.mock.module('test', ['sharingProvider', (sharingProvider) => {
+		beforeEach(angular.mock.module('test.sharing', ['sharingProvider', (sharingProvider) => {
 			provider = sharingProvider;
 		}]));
 
@@ -23,6 +23,6 @@ describe('sharing', () => {
 });
 
 
-angular.module('test', [
+angular.module('test.sharing', [
 	sharing.name
 ]);
