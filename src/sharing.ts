@@ -22,7 +22,7 @@ function sharingProvider() {
 		register(state, {name = '', accept = []} = {}) {
 			registry.push({state, name, accept});
 		},
-		$get: ['$state', '$rootScope', '$mdDialog', function ($state, $rootScope, $mdDialog) {
+		$get: ['$rootScope', '$state', '$stateParams', '$mdDialog', function ($rootScope, $state, $stateParams, $mdDialog) {
 			let provided = {};
 			let transfer = {};
 
@@ -81,7 +81,8 @@ function sharingProvider() {
 				open(state, event) {
 					transfer = provided;
 
-					if (state.startsWith(PROJECT_ROOT_STATE)) {
+					let {projectId} = $stateParams;
+					if (state.startsWith(PROJECT_ROOT_STATE) && (!projectId && projectId !== 0)) {
 						const dialog = {
 							targetEvent: event,
 							clickOutsideToClose: true,

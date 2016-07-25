@@ -19,7 +19,7 @@ function sharingProvider() {
             var _b = _a === void 0 ? {} : _a, _c = _b.name, name = _c === void 0 ? '' : _c, _d = _b.accept, accept = _d === void 0 ? [] : _d;
             registry.push({ state: state, name: name, accept: accept });
         },
-        $get: ['$state', '$rootScope', '$mdDialog', function ($state, $rootScope, $mdDialog) {
+        $get: ['$rootScope', '$state', '$stateParams', '$mdDialog', function ($rootScope, $state, $stateParams, $mdDialog) {
                 var provided = {};
                 var transfer = {};
                 var Sharing = (function () {
@@ -90,7 +90,8 @@ function sharingProvider() {
                     // TODO transfer to $stateParams if receiving state supports it (needs to be specified on register).
                     Sharing.prototype.open = function (state, event) {
                         transfer = provided;
-                        if (state.startsWith(states_1.PROJECT_ROOT_STATE)) {
+                        var projectId = $stateParams.projectId;
+                        if (state.startsWith(states_1.PROJECT_ROOT_STATE) && (!projectId && projectId !== 0)) {
                             var dialog = {
                                 targetEvent: event,
                                 clickOutsideToClose: true,
