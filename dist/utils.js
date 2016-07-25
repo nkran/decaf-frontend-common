@@ -1,14 +1,24 @@
 "use strict";
+var sharing_1 = require('./sharing');
 // Assume angular is available globally
 var utils = angular
-    .module('platform.utils', ['ui.router'])
+    .module('platform.utils', [
+    'ui.router',
+    sharing_1.default.name
+])
     .provider('platform', platformProvider);
-function platformProvider($stateProvider) {
+function platformProvider($stateProvider, sharingProvider) {
     var registry = new Map();
+    var ROOT_ROUTE = 'root';
+    var PROJECT_ROOT_ROUTE = ROOT_ROUTE + ".project";
     return {
         register: function (component, _a) {
-            var _b = (_a === void 0 ? {} : _a).isProjectType, isProjectType = _b === void 0 ? false : _b;
+            var _b = _a === void 0 ? {} : _a, _c = _b.isProjectType, isProjectType = _c === void 0 ? false : _c, _d = _b.sharing, sharing = _d === void 0 ? null : _d;
             registry.set(component, { isProjectType: isProjectType });
+            if (sharing !== null && typeof sharing === 'object') {
+                // Register sharing config for the root route
+                sharingProvider.register(isProjectType ? PROJECT_ROOT_ROUTE + "." + component : ROOT_ROUTE + "." + component, sharing);
+            }
             // Make it chainable
             return this;
         },
@@ -25,7 +35,7 @@ function platformProvider($stateProvider) {
                 }
             }
             var _d = (componentConfig || {}).isProjectType, isProjectType = _d === void 0 ? false : _d;
-            state = isProjectType ? "root.project." + state : "root." + state;
+            state = isProjectType ? PROJECT_ROOT_ROUTE + "." + state : ROOT_ROUTE + "." + state;
             var options = angular.copy(config);
             // Update the `{data}` with the component name
             var data = options.data || {};
