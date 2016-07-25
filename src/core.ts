@@ -1,4 +1,5 @@
 import sharing from './sharing';
+import {ROOT_STATE, PROJECT_ROOT_STATE} from './states';
 
 
 // Assume angular is available globally
@@ -13,16 +14,13 @@ const utils = angular
 function platformProvider($stateProvider, sharingProvider) {
 	let registry = new Map();
 
-	const ROOT_ROUTE = 'root';
-	const PROJECT_ROOT_ROUTE = `${ROOT_ROUTE}.project`;
-
 	return {
 		register(component: string, {isProjectType = false, sharing = null} = {}) {
 			registry.set(component, {isProjectType});
 
 			if (sharing !== null && typeof sharing === 'object') {
 				// Register sharing config for the root route
-				sharingProvider.register(isProjectType ? `${PROJECT_ROOT_ROUTE}.${component}` : `${ROOT_ROUTE}.${component}`, sharing);
+				sharingProvider.register(isProjectType ? `${PROJECT_ROOT_STATE}.${component}` : `${ROOT_STATE}.${component}`, sharing);
 			}
 
 			// Make it chainable
@@ -41,7 +39,7 @@ function platformProvider($stateProvider, sharingProvider) {
 			}
 
 			let {isProjectType = false} = componentConfig || {};
-			state = isProjectType ? `${PROJECT_ROOT_ROUTE}.${state}` : `${ROOT_ROUTE}.${state}`;
+			state = isProjectType ? `${PROJECT_ROOT_STATE}.${state}` : `${ROOT_STATE}.${state}`;
 			let options = angular.copy(config);
 
 			// Update the `{data}` with the component name

@@ -1,4 +1,4 @@
-import utils from './utils';
+import core from './core';
 
 
 // TODO: implement unit tests for this module
@@ -6,7 +6,7 @@ describe('utils', () => {
 	describe('platformProvider', () => {
 		let provider;
 
-		beforeEach(angular.mock.module('test.utils', ['platformProvider', (platformProvider) => {
+		beforeEach(angular.mock.module('test.core', ['platformProvider', (platformProvider) => {
 			provider = platformProvider;
 		}]));
 
@@ -19,6 +19,6 @@ describe('utils', () => {
 });
 
 
-angular.module('test.utils', [
-	utils.name
+angular.module('test.core', [
+	core.name
 ]);

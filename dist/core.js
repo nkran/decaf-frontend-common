@@ -1,5 +1,6 @@
 "use strict";
 var sharing_1 = require('./sharing');
+var states_1 = require('./states');
 // Assume angular is available globally
 var utils = angular
     .module('platform.utils', [
@@ -9,15 +10,13 @@ var utils = angular
     .provider('platform', platformProvider);
 function platformProvider($stateProvider, sharingProvider) {
     var registry = new Map();
-    var ROOT_ROUTE = 'root';
-    var PROJECT_ROOT_ROUTE = ROOT_ROUTE + ".project";
     return {
         register: function (component, _a) {
             var _b = _a === void 0 ? {} : _a, _c = _b.isProjectType, isProjectType = _c === void 0 ? false : _c, _d = _b.sharing, sharing = _d === void 0 ? null : _d;
             registry.set(component, { isProjectType: isProjectType });
             if (sharing !== null && typeof sharing === 'object') {
                 // Register sharing config for the root route
-                sharingProvider.register(isProjectType ? PROJECT_ROOT_ROUTE + "." + component : ROOT_ROUTE + "." + component, sharing);
+                sharingProvider.register(isProjectType ? states_1.PROJECT_ROOT_STATE + "." + component : states_1.ROOT_STATE + "." + component, sharing);
             }
             // Make it chainable
             return this;
@@ -35,7 +34,7 @@ function platformProvider($stateProvider, sharingProvider) {
                 }
             }
             var _d = (componentConfig || {}).isProjectType, isProjectType = _d === void 0 ? false : _d;
-            state = isProjectType ? PROJECT_ROOT_ROUTE + "." + state : ROOT_ROUTE + "." + state;
+            state = isProjectType ? states_1.PROJECT_ROOT_STATE + "." + state : states_1.ROOT_STATE + "." + state;
             var options = angular.copy(config);
             // Update the `{data}` with the component name
             var data = options.data || {};
@@ -62,4 +61,4 @@ function platformProvider($stateProvider, sharingProvider) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = utils;
-//# sourceMappingURL=utils.js.map
+//# sourceMappingURL=core.js.map
