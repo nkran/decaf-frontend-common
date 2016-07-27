@@ -154,4 +154,40 @@ function sharingProvider() {
 	};
 }
 
+
+class SharingMenuController {;
+	constructor(private sharing) {}
+
+	open(state, event) {
+		this.sharing.open(state, event);
+	}
+}
+
+sharing.component('sharing-menu', {
+	bindings: {
+		targets: '='
+	},
+	controller: SharingMenuController,
+	controllerAs: 'sharing',
+	template: `
+		<md-menu ng-show="sharing.targets.length" md-position-mode="target-right target">
+			<md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+				<md-icon>share</md-icon>
+			</md-button>
+
+			<md-menu-content width="4">
+				<md-menu-item ng-repeat="target in sharing.targets">
+					<md-button ng-click="sharing.open(target.state, $event)">
+						<div layout="row">
+							<p flex>{{target.name}}</p>
+							<md-icon md-menu-align-target>share</md-icon>
+						</div>
+					</md-button>
+				</md-menu-item>
+			</md-menu-content>
+		</md-menu>
+	`
+});
+
+
 export default sharing;
