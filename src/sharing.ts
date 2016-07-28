@@ -155,8 +155,15 @@ function sharingProvider() {
 }
 
 
-class SharingMenuController {;
-	constructor(private sharing) {}
+class SharingMenuController {
+	targets: any[];
+
+	constructor($scope, private sharing) {
+		// Listen for share changes
+		$scope.$on('share-change', (event, targets) => {
+			this.targets = targets;
+		});
+	}
 
 	open(state, event) {
 		this.sharing.open(state, event);

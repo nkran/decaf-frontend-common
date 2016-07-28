@@ -132,10 +132,14 @@ function sharingProvider() {
     };
 }
 var SharingMenuController = (function () {
-    function SharingMenuController(sharing) {
+    function SharingMenuController($scope, sharing) {
+        var _this = this;
         this.sharing = sharing;
+        // Listen for share changes
+        $scope.$on('share-change', function (event, targets) {
+            _this.targets = targets;
+        });
     }
-    ;
     SharingMenuController.prototype.open = function (state, event) {
         this.sharing.open(state, event);
     };
