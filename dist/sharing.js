@@ -146,9 +146,7 @@ var SharingMenuController = (function () {
     return SharingMenuController;
 }());
 sharing.component('sharingMenu', {
-    bindings: {
-        targets: '<'
-    },
+    bindings: {},
     controller: SharingMenuController,
     controllerAs: 'menu',
     template: "\n\t\t<md-menu ng-show=\"menu.targets.length\" md-position-mode=\"target-right target\">\n\t\t\t<md-button class=\"md-icon-button\" ng-click=\"$mdOpenMenu($event)\">\n\t\t\t\t<md-icon>share</md-icon>\n\t\t\t</md-button>\n\n\t\t\t<md-menu-content width=\"4\">\n\t\t\t\t<md-menu-item ng-repeat=\"target in menu.targets\">\n\t\t\t\t\t<md-button ng-click=\"menu.open(target.state, $event)\">\n\t\t\t\t\t\t<div layout=\"row\">\n\t\t\t\t\t\t\t<p flex>{{target.name}}</p>\n\t\t\t\t\t\t\t<md-icon md-menu-align-target>share</md-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</md-button>\n\t\t\t\t</md-menu-item>\n\t\t\t</md-menu-content>\n\t\t</md-menu>\n\t"
