@@ -141,7 +141,7 @@ var SharingMenuController = (function () {
     };
     return SharingMenuController;
 }());
-sharing.component('sharing-menu', {
+sharing.component('sharingMenu', {
     bindings: {
         targets: '='
     },

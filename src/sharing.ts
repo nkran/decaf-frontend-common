@@ -163,7 +163,7 @@ class SharingMenuController {;
 	}
 }
 
-sharing.component('sharing-menu', {
+sharing.component('sharingMenu', {
 	bindings: {
 		targets: '='
 	},
