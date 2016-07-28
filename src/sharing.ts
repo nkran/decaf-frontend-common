@@ -171,9 +171,7 @@ class SharingMenuController {
 }
 
 sharing.component('sharingMenu', {
-	bindings: {
-		targets: '<'
-	},
+	bindings: {},
 	controller: SharingMenuController,
 	controllerAs: 'menu',
 	template: `
