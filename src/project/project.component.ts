@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 import projects, {Projects} from './projects.service';
 import nav from './nav.component';
 

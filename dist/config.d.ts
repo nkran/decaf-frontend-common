@@ -1,4 +1,5 @@
-declare const config: ng.IModule;
+import * as angular from 'angular';
+declare const config: angular.IModule;
 export declare class Config {
     private _config;
     get(key?: string): any;

@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 import project from './project/project.component';
 import {PROJECT_ROOT_STATE} from './states';
 

@@ -1,4 +1,5 @@
-// Assume angular is available globally
+import * as angular from 'angular';
+
 const config = angular.module('platform.config', []);
 
 

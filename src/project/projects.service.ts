@@ -1,4 +1,5 @@
-// Assume angular is available globally
+import * as angular from 'angular';
+
 const projects = angular.module('platform.projects', []);
 
 class Projects<T> implements Iterable<T> {

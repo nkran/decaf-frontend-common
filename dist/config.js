@@ -1,5 +1,5 @@
 "use strict";
-// Assume angular is available globally
+var angular = require("angular");
 var config = angular.module('platform.config', []);
 var Config = (function () {
     function Config() {

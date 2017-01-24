@@ -1,6 +1,7 @@
 "use strict";
-var project_component_1 = require('./project/project.component');
-var states_1 = require('./states');
+var angular = require("angular");
+var project_component_1 = require("./project/project.component");
+var states_1 = require("./states");
 /**
  * This is a service for transferring items between components.
  */
@@ -53,7 +54,7 @@ function sharingProvider() {
                     };
                     Sharing.prototype.provide = function (scope, sharable) {
                         var _this = this;
-                        var _loop_1 = function(type) {
+                        var _loop_1 = function (type) {
                             var watchExpression = sharable[type];
                             scope.$watch(watchExpression, function (value) {
                                 if (value !== undefined) {

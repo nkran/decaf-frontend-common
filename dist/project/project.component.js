@@ -1,6 +1,7 @@
 "use strict";
-var projects_service_1 = require('./projects.service');
-var nav_component_1 = require('./nav.component');
+var angular = require("angular");
+var projects_service_1 = require("./projects.service");
+var nav_component_1 = require("./nav.component");
 var project = angular.module('platform.project', [
     projects_service_1.default.name,
     nav_component_1.default.name

@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 import sharing from './sharing';
 import {ROOT_STATE, PROJECT_ROOT_STATE} from './states';
 

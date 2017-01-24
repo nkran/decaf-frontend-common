@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 import projects, {Projects} from './projects.service';
 
 
@@ -63,7 +65,7 @@ nav.component('projectNav', {
 						<a ng-if="nav.project" ui-sref="root.project.home({projectId: nav.project.id})">{{nav.project.name}}</a>
 						<span ng-if="!nav.project">Platform</span>
 					</h1>
-		
+
 					<md-menu md-position-mode="target-right target">
 						<md-button aria-label="More" class="md-icon-button" ng-click="$mdOpenMenu($event)">
 							<md-icon>arrow_drop_down</md-icon>
@@ -90,7 +92,7 @@ nav.component('projectNav', {
 					</md-menu>
 				</div>
 			</md-toolbar>
-		
+
 			<md-list ng-hide="nav.project">
 				<md-subheader class="md-no-sticky">Projects</md-subheader>
 				<md-list-item ng-repeat="project in nav.projects" ui-sref="root.project.home({projectId: project.id})">
@@ -98,7 +100,7 @@ nav.component('projectNav', {
 					<p>{{ project.name }}</p>
 				</md-list-item>
 			</md-list>
-		
+
 			<md-list ng-if="nav.components" ng-show="nav.project">
 				<md-list-item ng-repeat="component in nav.components" ui-sref="{{component.navigation.state}}">
 					<md-icon>{{ component.navigation.icon }}</md-icon>

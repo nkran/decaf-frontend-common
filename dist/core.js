@@ -1,6 +1,7 @@
 "use strict";
-var sharing_1 = require('./sharing');
-var states_1 = require('./states');
+var angular = require("angular");
+var sharing_1 = require("./sharing");
+var states_1 = require("./states");
 // Assume angular is available globally
 var utils = angular
     .module('platform.utils', [

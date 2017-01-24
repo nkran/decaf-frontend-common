@@ -1,5 +1,5 @@
 "use strict";
-// Assume angular is available globally
+var angular = require("angular");
 var projects = angular.module('platform.projects', []);
 var Projects = (function () {
     function Projects() {
